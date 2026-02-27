@@ -1,0 +1,13 @@
+{% extends "tienda/base.html" %}
+
+{% block title %}Inicio - Django AI Lab{% endblock %}
+
+{% block content %}
+    <h1>Productos</h1>
+    <ul>
+        {% for p in productos %}
+            <li>
+                {{p.nombre}}
+            </li>
+        {% endfor %}
+{% endblock %}
