@@ -1,0 +1,30 @@
+{% extends "tienda/base.html" %}
+
+{% block content %}
+
+<h1>Lista de Pedidos</h1>
+
+<table border="1">
+<tr>
+    <th>ID</th>
+    <th>Cliente</th>
+    <th>Estado</th>
+    <th>Fecha</th>
+</tr>
+
+{% for pedido in pedidos %}
+<tr>
+    <td>
+        <a href="{% url 'tienda:detalle_pedido' pedido.pk %}">
+            {{ pedido.pk }}
+        </a>
+    </td>
+    <td>{{ pedido.cliente.nombre }}</td>
+    <td>{{ pedido.estado }}</td>
+    <td>{{ pedido.fecha }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

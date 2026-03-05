@@ -1,0 +1,21 @@
+{% extends "tienda/base.html" %}
+
+{% block content %}
+
+<h1>Pedido #{{ pedido.pk }}</h1>
+
+<p><b>Cliente:</b> {{ pedido.cliente.nombre }}</p>
+<p><b>Estado:</b> {{ pedido.estado }}</p>
+<p><b>Fecha:</b> {{ pedido.fecha }}</p>
+
+<h2>Productos</h2>
+
+<ul>
+{% for producto in pedido.productos.all %}
+    <li>{{ producto.nombre }} - ${{ producto.precio }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'tienda:lista_pedidos' %}">Volver</a>
+
+{% endblock %}
