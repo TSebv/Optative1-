@@ -1,0 +1,26 @@
+{% extends "tienda/base.html" %}
+
+{% block title %}{{ cliente.nombre }}{% endblock %}
+
+{% block content %}
+    <h1>{{ cliente.nombre }}</h1>
+    <p><strong>Email:</strong> {{ cliente.correo }}</p>
+
+    <p>
+        <a href="{% url 'tienda:editar_cliente' cliente.id %}" class="btn primary">Editar cliente</a>
+        <a href="{% url 'tienda:eliminar_cliente' cliente.id %}" class="btn delete">Eliminar cliente</a>
+    </p>
+
+    <h3>Pedidos</h3>
+    <ul>
+        {% for p in pedidos %}
+        <li>
+            <a href="{% url 'tienda:detalle_pedido' p.pk %}">
+                Pedido #{{ p.id }} - {{ p.estado }}
+            </a>
+        </li>
+        {% empty %}
+        <li>El cliente no tiene pedidos.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

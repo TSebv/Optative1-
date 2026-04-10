@@ -8,7 +8,7 @@
     <!--Renderizado rápido: cada campo envuelto en <p> con labels y errores-->
     {{ form.as_p}}
 
-    <button type="submit">Guardar</button>
+    <button type="submit"class="btn primary">Guardar</button>
 </form>
-<p><a href="{% url 'tienda:lista_productos' %}">Volver a la lista</a></p>
+<p><a href="{% url 'tienda:lista_productos' %}" >Volver a la lista</a></p>
 {% endblock %}

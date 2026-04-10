@@ -1,0 +1,9 @@
+<h2>Cliente</h2>
+
+<a href="{% url 'tienda:lista_clientes' %}">Volver</a>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
